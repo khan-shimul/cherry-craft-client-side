@@ -5,6 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    
+      fontFamily: {
+        playFair: ['Playfair Display', 'serif'],
+        quicksand: ['Quicksand', 'sans-serif'],
+      },
+    
     extend: {},
   },
   plugins: [require('daisyui'),],
