@@ -10,8 +10,14 @@ export default {
         playFair: ['Playfair Display', 'serif'],
         quicksand: ['Quicksand', 'sans-serif'],
       },
-    
-    extend: {},
+      colors: {
+        'orange': '#E09654'
+      },
+    extend: {
+      textColor: {
+        primary: '#E09654'
+      }
+    },
   },
   plugins: [require('daisyui'),],
 }
