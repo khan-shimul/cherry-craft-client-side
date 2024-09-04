@@ -79,7 +79,7 @@ const Banner = () => {
                 DECORATIVE CERAMIC VASES
               </h3>
               <h3 className="text-6xl font-playFair text-[#000] my-5">
-                Art Vase Ceramic
+                Floral Pottery Vase
               </h3>
               <h3 className="font-medium text-lg text-[#8A8989] font-playFair">
                 Vintage Hand Made Pottery Vase
@@ -103,7 +103,7 @@ const Banner = () => {
                 DECORATIVE CERAMIC VASES
               </h3>
               <h3 className="text-6xl font-playFair text-[#000] my-5">
-                Art Vase Ceramic
+                Vase & Cup Ceramic
               </h3>
               <h3 className="font-medium text-lg text-[#8A8989] font-playFair">
                 Vintage Hand Made Pottery Vase
