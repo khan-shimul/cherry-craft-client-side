@@ -15,7 +15,8 @@ export default {
       },
     extend: {
       textColor: {
-        primary: '#E09654'
+        primary: '#E09654',
+        white: '#fff',
       }
     },
   },
