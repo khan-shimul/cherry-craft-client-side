@@ -7,6 +7,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Register = () => {
   const { createUser, setUserPhotoName } = useContext(AuthContext);
   const navigate = useNavigate();
+
   // Handle register
   const handleRegister = (e) => {
     e.preventDefault();
