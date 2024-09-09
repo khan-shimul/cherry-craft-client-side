@@ -7,6 +7,7 @@ import AddCraftItems from "../Pages/AddCraftItems/AddCraftItems";
 import MyCraftList from "../Pages/MyCraftList/MyCraftList";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import ProtectRoute from "./ProtectRoute";
 
 export const Router = createBrowserRouter([
   {
@@ -24,11 +25,19 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/add-craft-items",
-        element: <AddCraftItems />,
+        element: (
+          <ProtectRoute>
+            <AddCraftItems />
+          </ProtectRoute>
+        ),
       },
       {
         path: "/my-craft-list",
-        element: <MyCraftList />,
+        element: (
+          <ProtectRoute>
+            <MyCraftList />
+          </ProtectRoute>
+        ),
       },
       {
         path: "/login",

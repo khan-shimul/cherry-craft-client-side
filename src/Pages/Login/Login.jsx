@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImg from "../../assets/login/login-illustration.png";
 import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
@@ -7,6 +7,9 @@ import toast, { Toaster } from "react-hot-toast";
 
 const Login = () => {
   const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
+  const location = useLocation();
+  // console.log("inside login page", location);
+  const navigate = useNavigate();
 
   // Handle Login
   const handleLogin = (e) => {
@@ -17,6 +20,7 @@ const Login = () => {
     loginUser(email, password)
       .then(() => {
         toast.success("Successfully login to your account");
+        navigate(location.state ? location.state : "/");
       })
       .catch((err) => {
         toast.error(err.message);
@@ -28,6 +32,7 @@ const Login = () => {
     googleLogin()
       .then(() => {
         toast.success("Successfully login to your account");
+        navigate(location.state ? location.state : "/");
       })
       .catch((err) => {
         toast.error(err.message);
@@ -39,6 +44,7 @@ const Login = () => {
     githubLogin()
       .then(() => {
         toast.success("Successfully login to your account");
+        navigate(location.state ? location.state : "/");
       })
       .catch((err) => {
         toast.error(err.message);
