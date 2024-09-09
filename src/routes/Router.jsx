@@ -6,6 +6,7 @@ import AllCraftItems from "../Pages/AllCraftItems/AllCraftItems";
 import AddCraftItems from "../Pages/AddCraftItems/AddCraftItems";
 import MyCraftList from "../Pages/MyCraftList/MyCraftList";
 import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 
 export const Router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const Router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/register",
+        element: <Register />,
       },
     ],
   },

@@ -18,7 +18,7 @@ import banner_3 from "../../assets/banner-img/slide4.1.jpg";
 
 const Banner = () => {
   return (
-    <div>
+    <div className="z-0">
       <Swiper
         // install Swiper modules
         modules={[
@@ -39,8 +39,8 @@ const Banner = () => {
         }}
         pagination={{ clickable: true }}
         // scrollbar={{ draggable: true }}
-        onSwiper={(swiper) => console.log(swiper)}
-        onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log("slide change")}
       >
         {/* Slide-1 */}
         <SwiperSlide>

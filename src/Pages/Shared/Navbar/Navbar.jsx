@@ -1,6 +1,19 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Navbar = () => {
+  const { user, logoutUser } = useContext(AuthContext);
+  // Logout user
+  const handleLogout = () => {
+    logoutUser()
+      .then(() => {
+        toast.success("Successfully logout to your account");
+      })
+      .catch((err) => toast.error(err.message));
+  };
+
   const navLinks = (
     <>
       <li>
@@ -48,7 +61,8 @@ const Navbar = () => {
   return (
     <div className="bg-[#F2F2F2] py-3">
       <div className="navbar max-w-7xl flex mx-auto">
-        <div className="navbar-start">
+        <Toaster position="top-right" reverseOrder={false} />
+        <div className="navbar-start z-10">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -83,9 +97,23 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <Link to={"/login"} className="btn">
-            Login
-          </Link>
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="btn bg-orange text-[#000]"
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link to={"/login"} className="btn mr-2 bg-orange text-[#000]">
+                Login
+              </Link>
+              <Link to={"/register"} className="btn hidden lg:flex">
+                Register
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>
