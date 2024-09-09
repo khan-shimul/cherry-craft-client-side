@@ -122,7 +122,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <h2 className="text-base">
-                      {user.metadata.creationTime.slice(0, 16)}
+                      {user?.metadata?.creationTime?.slice(0, 16)}
                     </h2>
                   </li>
                   <li>

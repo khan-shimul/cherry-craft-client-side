@@ -25,15 +25,14 @@ const Register = () => {
     }
     // create the user
     createUser(email, password)
-      .then((result) => {
-        console.log(result.user);
+      .then(() => {
         toast.success("Successfully create your account");
         // Set User Photo and Name
         setUserPhotoName(name, photo)
           .then(() => {
-            // console.log("Profile Updated");
             setUser({ ...user, displayName: name, photoURL: photo });
             navigate("/");
+            form.reset();
           })
           .catch((err) => console.log(err.message));
       })
