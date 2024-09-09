@@ -5,7 +5,8 @@ import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
-  const { createUser, setUserPhotoName } = useContext(AuthContext);
+  const { user, setUser, createUser, setUserPhotoName } =
+    useContext(AuthContext);
   const navigate = useNavigate();
 
   // Handle register
@@ -30,7 +31,8 @@ const Register = () => {
         // Set User Photo and Name
         setUserPhotoName(name, photo)
           .then(() => {
-            console.log("Profile Updated");
+            // console.log("Profile Updated");
+            setUser({ ...user, displayName: name, photoURL: photo });
             navigate("/");
           })
           .catch((err) => console.log(err.message));

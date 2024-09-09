@@ -98,12 +98,44 @@ const Navbar = () => {
         </div>
         <div className="navbar-end">
           {user ? (
-            <button
-              onClick={handleLogout}
-              className="btn bg-orange text-[#000]"
-            >
-              Logout
-            </button>
+            <>
+              <div className="dropdown dropdown-end z-10">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-16 rounded-full">
+                    <img
+                      title={user.displayName}
+                      alt={user.displayName}
+                      src={user.photoURL}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <h2 className="text-base">{user.displayName}</h2>
+                  </li>
+                  <li>
+                    <h2 className="text-base">
+                      {user.metadata.creationTime.slice(0, 16)}
+                    </h2>
+                  </li>
+                  <li>
+                    <h2
+                      className="text-base text-orange"
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </h2>
+                  </li>
+                </ul>
+              </div>
+            </>
           ) : (
             <>
               <Link to={"/login"} className="btn mr-2 bg-orange text-[#000]">
