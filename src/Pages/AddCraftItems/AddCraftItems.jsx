@@ -3,6 +3,35 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 const AddCraftItems = () => {
   const { user } = useContext(AuthContext);
+  // handle add craft items
+  const handleAddCraftItem = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const image = form.image.value;
+    const itemName = form.itemName.value;
+    const subCategoryName = form.subCategoryName.value;
+    const price = form.price.value;
+    const description = form.description.value;
+    const rating = form.rating.value;
+    const customization = form.customization.value;
+    const processingTime = form.processingTime.value;
+    const stockStatus = form.stockStatus.value;
+    const userName = form.userName.value;
+    const userEmail = form.userEmail.value;
+    const craftItem = {
+      image,
+      itemName,
+      subCategoryName,
+      price,
+      description,
+      rating,
+      customization,
+      processingTime,
+      stockStatus,
+      userName,
+      userEmail,
+    };
+  };
   return (
     <div className="hero bg-base-200 font-quicksand">
       <div className="hero-content flex-col w-full ">
@@ -12,10 +41,9 @@ const AddCraftItems = () => {
               Please Add Your Craft Items
             </h1>
           </div>
-          <form className="card-body">
+          <form onSubmit={handleAddCraftItem} className="card-body">
             {/* Image & Item */}
             <div className="flex flex-col md:flex-row md:gap-x-5">
-              {/* Img */}
               <div className="form-control md:w-1/2">
                 <label className="label">
                   <span className="label-text font-medium">Image</span>
@@ -28,7 +56,6 @@ const AddCraftItems = () => {
                   required
                 />
               </div>
-              {/* Item */}
               <div className="form-control md:w-1/2">
                 <label className="label">
                   <span className="label-text font-medium">Item</span>
@@ -56,7 +83,6 @@ const AddCraftItems = () => {
                   required
                 />
               </div>
-              {/* Price */}
               <div className="form-control md:w-1/2">
                 <label className="label">
                   <span className="label-text font-medium">Price</span>
@@ -76,8 +102,9 @@ const AddCraftItems = () => {
                 <span className="label-text font-medium">Description</span>
               </label>
               <textarea
+                name="description"
                 className="textarea textarea-bordered h-24"
-                placeholder="Description"
+                placeholder="description"
               ></textarea>
             </div>
             {/* Rating & Customization Example */}
@@ -94,15 +121,12 @@ const AddCraftItems = () => {
                   required
                 />
               </div>
-              {/* customization- example- yes, no */}
               <div className="form-control md:w-1/2">
                 <label className="label">
-                  <span className="label-text font-medium">
-                    Customization Example
-                  </span>
+                  <span className="label-text font-medium">Customization</span>
                 </label>
                 <input
-                  name="customizationExample"
+                  name="customization"
                   type="text"
                   placeholder="yes / no"
                   className="input input-bordered"
@@ -120,13 +144,12 @@ const AddCraftItems = () => {
                 </label>
                 <input
                   name="processingTime"
-                  type="text"
-                  placeholder="processing time"
+                  type="number"
+                  placeholder="processing days"
                   className="input input-bordered"
                   required
                 />
               </div>
-              {/* Stock Status */}
               <div className="form-control md:w-1/2">
                 <label className="label">
                   <span className="label-text font-medium">Stock Status</span>
@@ -134,7 +157,7 @@ const AddCraftItems = () => {
                 <input
                   name="stockStatus"
                   type="text"
-                  placeholder="In stock / Made to Order"
+                  placeholder="in stock / made to order"
                   className="input input-bordered"
                   required
                 />
@@ -168,7 +191,9 @@ const AddCraftItems = () => {
               </div>
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-orange">Add Craft</button>
+              <button className="btn bg-orange font-medium text-base">
+                Add Craft
+              </button>
             </div>
           </form>
         </div>
