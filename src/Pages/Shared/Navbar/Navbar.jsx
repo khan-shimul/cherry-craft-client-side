@@ -36,26 +36,38 @@ const Navbar = () => {
           All Art & craft Items
         </NavLink>
       </li>
-      <li>
-        <NavLink
-          className={({ isActive, isPending }) =>
-            isActive ? "text-primary" : isPending ? "pending" : "text-[#0D0D0D]"
-          }
-          to={"/add-craft-items"}
-        >
-          Add Craft Item
-        </NavLink>
-      </li>
-      <li>
-        <NavLink
-          className={({ isActive, isPending }) =>
-            isActive ? "text-primary" : isPending ? "pending" : "text-[#0D0D0D]"
-          }
-          to={"/my-craft-list"}
-        >
-          My Art & Craft List
-        </NavLink>
-      </li>
+      {user && (
+        <>
+          <li>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isActive
+                  ? "text-primary"
+                  : isPending
+                  ? "pending"
+                  : "text-[#0D0D0D]"
+              }
+              to={"/add-craft-items"}
+            >
+              Add Craft Item
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={({ isActive, isPending }) =>
+                isActive
+                  ? "text-primary"
+                  : isPending
+                  ? "pending"
+                  : "text-[#0D0D0D]"
+              }
+              to={"/my-craft-list"}
+            >
+              My Art & Craft List
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -122,7 +134,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <h2 className="text-base">
-                      {user?.metadata?.creationTime?.slice(0, 16)}
+                      Created: {user?.metadata?.creationTime?.slice(0, 11)}
                     </h2>
                   </li>
                   <li>
