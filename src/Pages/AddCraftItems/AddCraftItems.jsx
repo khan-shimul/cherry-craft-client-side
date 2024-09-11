@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const AddCraftItems = () => {
   const { user } = useContext(AuthContext);
@@ -31,16 +32,33 @@ const AddCraftItems = () => {
       userName,
       userEmail,
     };
+    // craft-item post to db
+    fetch("http://localhost:5000/craft-items", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(craftItem),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast.success("Successfully added your item");
+          form.reset();
+        } else {
+          toast.error("Something went wrong. Please try again");
+        }
+      });
   };
   return (
     <div className="hero bg-base-200 font-quicksand">
+      <Toaster position="top-right" reverseOrder={false} />
       <div className="hero-content flex-col w-full ">
         <div className="card bg-base-100 w-full shadow-sm">
-          <div className="text-center pt-7 border-b md:mx-16">
-            <h1 className="text-3xl font-bold pb-5">
-              Please Add Your Craft Items
-            </h1>
+          <div className="text-center pt-7 md:mx-16">
+            <h1 className="text-3xl font-bold pb-3">Add Your Craft Items</h1>
           </div>
+          <div className="border-b w-1/2 md:w-1/5 flex mx-auto"></div>
           <form onSubmit={handleAddCraftItem} className="card-body">
             {/* Image & Item */}
             <div className="flex flex-col md:flex-row md:gap-x-5">
@@ -115,7 +133,7 @@ const AddCraftItems = () => {
                 </label>
                 <input
                   name="rating"
-                  type="number"
+                  type="text"
                   placeholder="rating"
                   className="input input-bordered"
                   required
