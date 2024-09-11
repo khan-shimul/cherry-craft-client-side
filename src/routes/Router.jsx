@@ -8,6 +8,7 @@ import MyCraftList from "../Pages/MyCraftList/MyCraftList";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import ProtectRoute from "./ProtectRoute";
+import CraftItemDetails from "../Pages/CraftItemDetails/CraftItemDetails";
 
 export const Router = createBrowserRouter([
   {
@@ -19,6 +20,16 @@ export const Router = createBrowserRouter([
         path: "/",
         element: <Home />,
         loader: () => fetch("http://localhost:5000/craft-items"),
+      },
+      {
+        path: "/craft-item/:id",
+        element: (
+          <ProtectRoute>
+            <CraftItemDetails />
+          </ProtectRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/craft-item/${params.id}`),
       },
       {
         path: "/all-craft-items",

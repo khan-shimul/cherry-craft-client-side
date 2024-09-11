@@ -1,7 +1,9 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const CraftItem = ({ craftItem }) => {
-  const { image, itemName, stockStatus, price } = craftItem;
+  const { _id, image, itemName, stockStatus, price } = craftItem;
+
   return (
     <div className="card bg-base-100 shadow-md rounded-xl mx-5 md:mx-7 lg:mx-0">
       <figure>
@@ -13,9 +15,11 @@ const CraftItem = ({ craftItem }) => {
       <div className="card-body">
         <h2 className="font-semibold text-xl">{itemName}</h2>
         <p className="-mt-1 text-orange font-medium">${price}.00</p>
-        <button className="btn btn-outline text-orange w-1/2 mt-1">
-          View Details
-        </button>
+        <Link to={`/craft-item/${_id}`}>
+          <button className="btn btn-outline text-orange w-1/2 mt-1">
+            View Details
+          </button>
+        </Link>
       </div>
     </div>
   );
