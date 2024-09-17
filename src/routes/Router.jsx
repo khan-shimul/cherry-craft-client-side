@@ -33,6 +33,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/all-craft-items",
+        loader: () => fetch("http://localhost:5000/craft-items"),
         element: <AllCraftItems />,
       },
       {
