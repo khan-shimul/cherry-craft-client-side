@@ -46,6 +46,7 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/my-craft-list",
+        loader: () => fetch("http://localhost:5000/craft-items"),
         element: (
           <ProtectRoute>
             <MyCraftList />
