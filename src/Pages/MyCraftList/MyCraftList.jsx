@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyCraftItem from "./MyCraftItem";
@@ -9,6 +9,7 @@ const MyCraftList = () => {
   const specifiedItems = loadedItems.filter(
     (item) => item.userEmail === user.email
   );
+  const [craftItems, setCraftItems] = useState(specifiedItems);
 
   return (
     <div>
@@ -17,8 +18,13 @@ const MyCraftList = () => {
       </h2>
       <div className="border-b-2 w-1/6 md:w-1/12 mx-auto"></div>
       <div className="max-w-7xl lg:mx-auto md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8">
-        {specifiedItems.map((item) => (
-          <MyCraftItem key={item._id} craftItem={item} />
+        {craftItems.map((item) => (
+          <MyCraftItem
+            key={item._id}
+            craftItem={item}
+            craftItems={craftItems}
+            setCraftItems={setCraftItems}
+          />
         ))}
       </div>
     </div>
