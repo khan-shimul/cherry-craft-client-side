@@ -5,7 +5,9 @@ import Swal from "sweetalert2";
 const MyCraftItem = ({ craftItem, setCraftItems, craftItems }) => {
   const { _id, image, itemName, stockStatus, price, customization, rating } =
     craftItem;
+  // Handle Delete Craft Item
   const handleDeleteItem = (_id) => {
+    // Show a confirmation message
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
