@@ -11,10 +11,13 @@ const MyCraftList = () => {
     (item) => item.userEmail === user.email
   );
   const [craftItems, setCraftItems] = useState(specifiedItems);
+  const [filter, setFilter] = useState("all");
 
   // Handle Filter Dropdown
   const handleFilterChance = (e) => {
     const selectedFilter = e.target.value;
+    setFilter(selectedFilter);
+
     // Filter Data based on "customization"
     if (selectedFilter === "yes") {
       const selectedItem = specifiedItems.filter(
@@ -39,14 +42,15 @@ const MyCraftList = () => {
       <div className="border-b-2 w-1/6 md:w-1/12 mx-auto"></div>
       {/* Customization */}
       <div className="max-w-7xl font-quicksand flex flex-col md:flex-row items-center mx-5 md:mx-8 lg:mx-auto mt-5">
-        <h2 className="text-lg font-medium mr-2">Filter Craft Items: </h2>
+        <h2 className="text-lg font-medium mr-2">
+          Filter Craft Items Based On Customization:
+        </h2>
         <select
           onChange={handleFilterChance}
+          value={filter}
           className="select select-bordered w-full max-w-xs"
         >
-          <option disabled selected>
-            Customization
-          </option>
+          {/* <option disabled>Customization</option> */}
           <option value={"all"}>All</option>
           <option value={"yes"}>Yes</option>
           <option value={"no"}>No</option>
