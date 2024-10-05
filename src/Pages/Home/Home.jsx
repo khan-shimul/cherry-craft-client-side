@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "./Banner";
 import DiscountBanner from "./DiscountBanner/DiscountBanner";
 import CraftItem from "./CraftItem";
+import CeramicsFeeling from "./CeramicsFeeling";
 
 const Home = () => {
   const loadedData = useLoaderData();
@@ -23,6 +24,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+      {/* Ceramics with Feeling Section */}
+      <CeramicsFeeling />
       <h2 className="font-playFair text-orange my-5 text-center">
         Art & Craft Categories Section
       </h2>
