@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import DiscountBanner from "./DiscountBanner/DiscountBanner";
 import CraftItem from "./CraftItem";
 import CeramicsFeeling from "./CeramicsFeeling";
+import CraftSubCategories from "./CraftSubCategories/CraftSubCategories";
 
 const Home = () => {
   const loadedData = useLoaderData();
@@ -17,7 +18,7 @@ const Home = () => {
             Best Craft Items
           </h2>
           <div className="border-b-8 border-orange w-1/2 md:w-1/4 lg:w-1/6 flex mx-auto"></div>
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-10">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10">
             {loadedData.slice(0, 8).map((craftItem) => (
               <CraftItem key={craftItem._id} craftItem={craftItem} />
             ))}
@@ -26,9 +27,8 @@ const Home = () => {
       </section>
       {/* Ceramics with Feeling Section */}
       <CeramicsFeeling />
-      <h2 className="font-playFair text-orange my-5 text-center">
-        Art & Craft Categories Section
-      </h2>
+      {/* Craft Categories Section */}
+      <CraftSubCategories />
     </div>
   );
 };
