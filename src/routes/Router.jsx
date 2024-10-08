@@ -10,6 +10,7 @@ import Register from "../Pages/Register/Register";
 import ProtectRoute from "./ProtectRoute";
 import CraftItemDetails from "../Pages/CraftItemDetails/CraftItemDetails";
 import CraftItemUpdate from "../Pages/MyCraftList/CraftItemUpdate";
+import SubCategoryItems from "../Pages/Home/CraftSubCategories/SubCategoryItems";
 
 export const Router = createBrowserRouter([
   {
@@ -63,6 +64,16 @@ export const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/craft-item/${params.id}`),
+      },
+      {
+        path: "/craft-item/sub-categories/:name",
+        element: (
+          <ProtectRoute>
+            <SubCategoryItems />
+          </ProtectRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/sub-categories/${params.name}`),
       },
       {
         path: "/login",
