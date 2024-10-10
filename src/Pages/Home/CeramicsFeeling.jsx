@@ -6,7 +6,7 @@ const CeramicsFeeling = () => {
       style={{
         backgroundImage: `url(${bannerImg})`,
       }}
-      className="max-w-7xl mx-auto h-[350px] md:h-[550px] bg-cover bg-no-repeat bg-center flex flex-col md:flex-row items-center justify-center font-quicksand w-full px-5 md:px-14 my-16"
+      className="max-w-7xl mx-auto h-[350px] md:h-[550px] bg-cover bg-no-repeat bg-center flex flex-col md:flex-row items-center justify-center font-quicksand w-full px-5 md:px-14 my-14"
     >
       <div className="lg:w-1/2 lg:block"></div>
       <div className="lg:w-1/2">

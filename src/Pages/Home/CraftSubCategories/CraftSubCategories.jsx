@@ -11,7 +11,7 @@ const CraftSubCategories = () => {
   }, []);
 
   return (
-    <section className="font-quicksand ">
+    <section className="font-quicksand mb-16">
       <h2 className="font-bold text-4xl text-center pb-5">Craft Categories</h2>
       <div className="border-b-8 border-orange w-1/2 md:w-1/4 lg:w-1/6 flex mx-auto"></div>
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 my-10">
