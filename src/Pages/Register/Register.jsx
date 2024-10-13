@@ -43,7 +43,7 @@ const Register = () => {
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="flex gap-7 flex-col lg:flex-row items-center font-quicksand">
-        <Toaster position="top-right" reverseOrder={false} />
+        <Toaster position="bottom-right" reverseOrder={false} />
         <div className="lg:mr-5">
           <img src={loginImg} alt="" />
         </div>

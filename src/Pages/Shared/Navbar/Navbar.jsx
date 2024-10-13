@@ -1,10 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { IoIosSunny } from "react-icons/io";
+import { MdOutlineDarkMode } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
+  const [darkMode, setDarkMode] = useState(false);
   // Logout user
   const handleLogout = () => {
     logoutUser()
@@ -14,12 +17,25 @@ const Navbar = () => {
       .catch((err) => toast.error(err.message));
   };
 
+  // Dark mode handler
+  const darkModeHandler = () => {
+    setDarkMode(!darkMode);
+    console.log(darkMode);
+    document.body.classList.toggle("dark");
+    if (!darkMode) {
+      document.body.style.background = "#151427";
+    }
+    if (darkMode) {
+      document.body.style.background = "#fff";
+    }
+  };
+
   const navLinks = (
     <>
       <li>
         <NavLink
           className={({ isActive, isPending }) =>
-            isActive ? "text-primary" : isPending ? "pending" : "text-[#0D0D0D]"
+            isActive ? "text-primary" : isPending ? "pending" : ""
           }
           to={"/"}
         >
@@ -29,7 +45,7 @@ const Navbar = () => {
       <li>
         <NavLink
           className={({ isActive, isPending }) =>
-            isActive ? "text-primary" : isPending ? "pending" : "text-[#0D0D0D]"
+            isActive ? "text-primary" : isPending ? "pending" : ""
           }
           to={"/all-craft-items"}
         >
@@ -41,11 +57,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive, isPending }) =>
-                isActive
-                  ? "text-primary"
-                  : isPending
-                  ? "pending"
-                  : "text-[#0D0D0D]"
+                isActive ? "text-primary" : isPending ? "pending" : ""
               }
               to={"/add-craft-items"}
             >
@@ -55,11 +67,7 @@ const Navbar = () => {
           <li>
             <NavLink
               className={({ isActive, isPending }) =>
-                isActive
-                  ? "text-primary"
-                  : isPending
-                  ? "pending"
-                  : "text-[#0D0D0D]"
+                isActive ? "text-primary" : isPending ? "pending" : ""
               }
               to={"/my-craft-list"}
             >
@@ -71,9 +79,9 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-[#F2F2F2] py-3">
+    <div className="bg-[#F2F2F2] dark:bg-[#151427] dark:text-white py-3">
       <div className="navbar max-w-7xl flex mx-auto">
-        <Toaster position="top-right" reverseOrder={false} />
+        <Toaster position="bottom-right" reverseOrder={false} />
         <div className="navbar-start z-10">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -94,7 +102,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg font-medium font-quicksand"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg font-medium font-quicksand text-[#0D0D0D] dark:text-white"
             >
               {navLinks}
             </ul>
@@ -104,11 +112,17 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 text-lg font-medium font-quicksand">
+          <ul className="menu menu-horizontal px-1 text-lg font-medium font-quicksand dark:text-white text-[#0D0D0D]">
             {navLinks}
           </ul>
         </div>
-        <div className="navbar-end">
+        <div className="navbar-end flex items-center">
+          <div>
+            <button onClick={darkModeHandler} className="text-3xl mr-5">
+              {darkMode && <IoIosSunny title="Switch to light mode" />}
+              {!darkMode && <MdOutlineDarkMode title="Switch to dark mode" />}
+            </button>
+          </div>
           {user ? (
             <>
               <div className="dropdown dropdown-end z-10">
