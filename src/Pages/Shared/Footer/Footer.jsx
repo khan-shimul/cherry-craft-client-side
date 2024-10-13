@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer bg-base-200 text-base-content p-10 font-quicksand">
+    <footer className="footer bg-base-200 dark:bg-[#151427] dark:text-white text-base-content p-10 font-quicksand">
       <aside>
         <svg
           width="50"
@@ -56,7 +56,9 @@ const Footer = () => {
           <h6 className="footer-title">Newsletter</h6>
           <fieldset className="form-control w-80">
             <label className="label">
-              <span className="label-text">Enter your email address</span>
+              <span className="label-text dark:text-white">
+                Enter your email address
+              </span>
             </label>
             <div className="join">
               <input

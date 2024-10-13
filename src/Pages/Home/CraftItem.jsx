@@ -5,7 +5,7 @@ const CraftItem = ({ craftItem }) => {
   const { _id, image, itemName, stockStatus, price } = craftItem;
 
   return (
-    <div className="card bg-base-100 shadow-md rounded-xl mx-5 md:mx-7 lg:mx-0">
+    <div className="card bg-base-100 dark:bg-[#151427] shadow-md rounded-xl mx-5 md:mx-7 lg:mx-0">
       <figure>
         <img src={image} alt={`Image for ${itemName}`} />
       </figure>
@@ -13,7 +13,7 @@ const CraftItem = ({ craftItem }) => {
         <h5 className="text-sm">{stockStatus}</h5>
       </div>
       <div className="card-body">
-        <h2 className="font-semibold text-xl">{itemName}</h2>
+        <h2 className="font-semibold text-xl dark:text-white">{itemName}</h2>
         <p className="-mt-1 text-orange font-medium">${price}.00</p>
         <Link to={`/craft-item/${_id}`}>
           <button className="btn btn-outline text-orange w-1/2 mt-1">

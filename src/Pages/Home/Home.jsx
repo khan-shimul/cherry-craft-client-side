@@ -14,7 +14,7 @@ const Home = () => {
       {/* Craft items section */}
       <section className="font-quicksand my-5">
         <div>
-          <h2 className="font-bold text-4xl text-center pb-5">
+          <h2 className="font-bold text-4xl text-center pb-5 dark:text-white">
             Best Craft Items
           </h2>
           <div className="border-b-8 border-orange w-1/2 md:w-1/4 lg:w-1/6 flex mx-auto"></div>

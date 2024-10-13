@@ -20,10 +20,10 @@ const Navbar = () => {
   // Dark mode handler
   const darkModeHandler = () => {
     setDarkMode(!darkMode);
-    console.log(darkMode);
+    // console.log(darkMode);
     document.body.classList.toggle("dark");
     if (!darkMode) {
-      document.body.style.background = "#151427";
+      document.body.style.background = "#373649";
     }
     if (darkMode) {
       document.body.style.background = "#fff";
