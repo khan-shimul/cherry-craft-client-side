@@ -4,7 +4,7 @@ import banner3 from "../../../assets/banner-img/banner7.3.jpg";
 
 const DiscountBanner = () => {
   return (
-    <div className="max-w-7xl flex md:mx-7 font-quicksand mx-5 my-10 md:my-20">
+    <section className="max-w-7xl flex md:mx-7 font-quicksand mx-5 my-10 md:my-20">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7 w-full">
         {/* Banner-1 */}
         <div
@@ -48,7 +48,7 @@ const DiscountBanner = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
