@@ -56,7 +56,11 @@ const MyCraftList = () => {
           <option value={"no"}>No</option>
         </select>
       </div>
-      <div className="max-w-7xl lg:mx-auto md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        className="max-w-7xl lg:mx-auto md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-8"
+      >
         {craftItems.map((item) => (
           <MyCraftItem
             key={item._id}

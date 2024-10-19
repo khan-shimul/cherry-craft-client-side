@@ -29,7 +29,7 @@ const CraftItemDetails = () => {
         <div className="w-full lg:w-1/2 mx-auto">
           <img className="w-full" src={image} alt="" />
         </div>
-        <div className="lg:w-1/2">
+        <div data-aos="fade-up" data-aos-duration="3000" className="lg:w-1/2">
           <h3 className="font-medium text-2xl">{itemName}</h3>
           <h4 className="font-medium text-lg text-orange pt-2">${price}.00</h4>
           <div className="border-b border-[#C8C8C8] mt-7 mb-5"></div>

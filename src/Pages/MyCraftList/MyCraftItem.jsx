@@ -43,7 +43,11 @@ const MyCraftItem = ({ craftItem, setCraftItems, craftItems }) => {
   return (
     <div className="card bg-base-100 shadow-md rounded-xl mx-5 md:mx-0">
       <figure>
-        <img src={image} alt={`Image for ${itemName}`} />
+        <img
+          className="h-[400px] w-full"
+          src={image}
+          alt={`Image for ${itemName}`}
+        />
       </figure>
       <div className="absolute top-5 right-5 bg-[#E12C43] text-white px-2">
         <h5 className="text-sm">{stockStatus}</h5>

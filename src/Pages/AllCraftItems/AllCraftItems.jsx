@@ -9,7 +9,11 @@ const AllCraftItems = () => {
         Our Craft Items
       </h2>
       <div className="border-b-2 w-1/6 md:w-1/12 mx-auto"></div>
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-10">
+      <div
+        data-aos="fade-up"
+        data-aos-duration="3000"
+        className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 mt-10"
+      >
         {loadedCrafts.map((craftItem) => (
           <CraftItem key={craftItem._id} craftItem={craftItem} />
         ))}

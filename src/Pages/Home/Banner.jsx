@@ -16,6 +16,7 @@ import banner_1 from "../../assets/banner-img/slide1.1.jpg";
 import banner_2 from "../../assets/banner-img/slide1.2.jpg";
 import banner_3 from "../../assets/banner-img/slide4.1.jpg";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
@@ -67,9 +68,11 @@ const Banner = () => {
                   Vintage Hand Made Pottery Vase
                 </h3>
               </Fade>
-              <button className="btn btn-outline mt-10 px-8 uppercase">
-                Shop Now
-              </button>
+              <Link to={"/craft-item/sub-categories/ceramic"}>
+                <button className="btn btn-outline mt-10 px-8 uppercase">
+                  Shop Now
+                </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -82,18 +85,27 @@ const Banner = () => {
             className="bg-no-repeat bg-cover bg-center py-10 px-10 md:py-14 md:px-10 lg:px-28 lg:h-screen"
           >
             <div className="lg:mt-20">
-              <h3 className="font-medium text-lg text-[#8A8989] font-playFair tracking-wide md:tracking-[.20em]">
-                DECORATIVE CERAMIC VASES
-              </h3>
-              <h3 className="text-6xl font-playFair text-[#000] my-5">
-                Floral Pottery Vase
-              </h3>
-              <h3 className="font-medium text-lg text-[#8A8989] font-playFair">
-                Vintage Hand Made Pottery Vase
-              </h3>
-              <button className="btn btn-outline mt-10 px-8 uppercase">
-                Shop Now
-              </button>
+              <Fade direction="down">
+                <h3 className="font-medium text-lg text-[#8A8989] font-playFair tracking-wide md:tracking-[.20em]">
+                  DECORATIVE CERAMIC VASES
+                </h3>
+              </Fade>
+
+              <Fade direction="right">
+                <h3 className="text-6xl font-playFair text-[#000] my-5">
+                  Floral Pottery Vase
+                </h3>
+              </Fade>
+              <Fade direction="up">
+                <h3 className="font-medium text-lg text-[#8A8989] font-playFair">
+                  Vintage Hand Made Pottery Vase
+                </h3>
+              </Fade>
+              <Link to={"/craft-item/sub-categories/pottery"}>
+                <button className="btn btn-outline mt-10 px-8 uppercase">
+                  Shop Now
+                </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -115,9 +127,11 @@ const Banner = () => {
               <h3 className="font-medium text-lg text-[#8A8989] font-playFair">
                 Vintage Hand Made Pottery Vase
               </h3>
-              <button className="btn btn-outline mt-10 px-8 uppercase">
-                Shop Now
-              </button>
+              <Link to={"/craft-item/sub-categories/Stoneware"}>
+                <button className="btn btn-outline mt-10 px-8 uppercase">
+                  Shop Now
+                </button>
+              </Link>
             </div>
           </div>
         </SwiperSlide>

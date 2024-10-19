@@ -20,8 +20,12 @@ const Home = () => {
               Best Craft Items
             </h2>
             <div className="border-b-8 border-orange w-1/2 md:w-1/4 lg:w-1/6 flex mx-auto"></div>
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10">
-              {loadedData.slice(0, 8).map((craftItem) => (
+            <div
+              data-aos="fade-up"
+              data-aos-duration="3000"
+              className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10"
+            >
+              {loadedData.slice(0, 9).map((craftItem) => (
                 <CraftItem key={craftItem._id} craftItem={craftItem} />
               ))}
             </div>
