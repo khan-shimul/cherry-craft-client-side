@@ -1,11 +1,15 @@
 import { useLoaderData } from "react-router-dom";
 import CraftItem from "../Home/CraftItem";
+import { Helmet } from "react-helmet-async";
 
 const AllCraftItems = () => {
   const loadedCrafts = useLoaderData();
   return (
-    <div>
-      <h2 className="text-center font-playFair mt-10 text-orange text-3xl mx-10 pb-2">
+    <section>
+      <Helmet>
+        <title>Cheer Craft | All Craft</title>
+      </Helmet>
+      <h2 className="text-center font-playFair mt-8 text-orange text-3xl mx-10 pb-2">
         Our Craft Items
       </h2>
       <div className="border-b-2 w-1/6 md:w-1/12 mx-auto"></div>
@@ -18,7 +22,7 @@ const AllCraftItems = () => {
           <CraftItem key={craftItem._id} craftItem={craftItem} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

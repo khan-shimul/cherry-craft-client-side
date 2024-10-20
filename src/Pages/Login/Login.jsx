@@ -4,6 +4,7 @@ import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
@@ -53,6 +54,9 @@ const Login = () => {
 
   return (
     <div className="hero bg-base-200 min-h-screen">
+      <Helmet>
+        <title>Cheer Craft | Login</title>
+      </Helmet>
       <div className="flex gap-7 flex-col lg:flex-row items-center font-quicksand">
         <Toaster position="bottom-right" reverseOrder={false} />
         <div className="lg:mr-5">

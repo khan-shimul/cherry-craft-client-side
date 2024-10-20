@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const AddCraftItems = () => {
   const { user } = useContext(AuthContext);
@@ -66,7 +67,10 @@ const AddCraftItems = () => {
       });
   };
   return (
-    <div className="hero bg-base-200 dark:bg-[#211f3d] font-quicksand py-10">
+    <div className="hero bg-base-200 dark:bg-[#211f3d] font-quicksand pb-10">
+      <Helmet>
+        <title>Cheer Craft | Add Items</title>
+      </Helmet>
       {/* <Toaster position="top-right" reverseOrder={false} /> */}
       <div className="hero-content flex-col w-full ">
         <div className="card bg-base-100 dark:bg-[#151427] w-full shadow-sm">

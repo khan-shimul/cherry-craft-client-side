@@ -3,6 +3,7 @@ import loginImg from "../../assets/login/login-illustration.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { user, setUser, createUser, setUserPhotoName } =
@@ -42,6 +43,9 @@ const Register = () => {
   };
   return (
     <div className="hero bg-base-200 min-h-screen">
+      <Helmet>
+        <title>Cheer Craft | Register</title>
+      </Helmet>
       <div className="flex gap-7 flex-col lg:flex-row items-center font-quicksand">
         <Toaster position="bottom-right" reverseOrder={false} />
         <div className="lg:mr-5">

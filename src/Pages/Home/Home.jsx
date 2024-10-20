@@ -5,11 +5,15 @@ import CraftItem from "./CraftItem";
 import CeramicsFeeling from "./CeramicsFeeling";
 import CraftSubCategories from "./CraftSubCategories/CraftSubCategories";
 import { Fade } from "react-awesome-reveal";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
   const loadedData = useLoaderData();
   return (
     <div>
+      <Helmet>
+        <title>Cheer Craft | Home</title>
+      </Helmet>
       <Banner />
       <DiscountBanner />
       {/* Craft items section */}

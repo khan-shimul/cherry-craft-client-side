@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import toast, { Toaster } from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
@@ -58,6 +59,9 @@ const CraftItemUpdate = () => {
   };
   return (
     <div className="hero bg-base-200 font-quicksand">
+      <Helmet>
+        <title>Cheer Craft | Update Items</title>
+      </Helmet>
       <Toaster position="top-right" reverseOrder={false} />
       <div className="hero-content flex-col w-full ">
         <div className="card bg-base-100 w-full shadow-sm">

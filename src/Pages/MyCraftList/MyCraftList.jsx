@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import MyCraftItem from "./MyCraftItem";
+import { Helmet } from "react-helmet-async";
 
 const MyCraftList = () => {
   const { user } = useContext(AuthContext);
@@ -36,6 +37,9 @@ const MyCraftList = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Cheer Craft | My Craft List</title>
+      </Helmet>
       <h2 className="font-playFair text-3xl text-orange text-center mt-8 pb-2 mx-auto">
         My Craft List!!
       </h2>

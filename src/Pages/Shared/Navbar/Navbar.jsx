@@ -98,7 +98,7 @@ const Navbar = () => {
   );
   return (
     <div
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`sticky top-0 w-full z-50 transition-all duration-300 ${
         navShadow ? "shadow-lg" : ""
       } bg-[#F2F2F2] dark:bg-[#151427] dark:text-white py-3`}
     >

@@ -1,5 +1,6 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { MdNavigateNext } from "react-icons/md";
+import { Helmet } from "react-helmet-async";
 
 const CraftItemDetails = () => {
   const {
@@ -16,6 +17,9 @@ const CraftItemDetails = () => {
 
   return (
     <section className="max-w-7xl mx-auto font-quicksand my-10">
+      <Helmet>
+        <title>Cheer Craft | Craft Details</title>
+      </Helmet>
       <div className="mx-7 flex items-center gap-x-7 text-sm mb-9">
         <Link to={"/"}>
           <p title="Back to front page">Home</p>
