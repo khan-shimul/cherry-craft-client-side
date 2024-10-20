@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
@@ -8,6 +8,8 @@ import { MdOutlineDarkMode } from "react-icons/md";
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
   const [darkMode, setDarkMode] = useState(false);
+  const [navShadow, setNavShadow] = useState(false);
+
   // Logout user
   const handleLogout = () => {
     logoutUser()
@@ -16,6 +18,22 @@ const Navbar = () => {
       })
       .catch((err) => toast.error(err.message));
   };
+
+  // Add scroll event listener
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setNavShadow(true); // Add shadow if scrolled more than 50px
+      } else {
+        setNavShadow(false); // Remove shadow if at the top
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Dark mode handler
   const darkModeHandler = () => {
@@ -79,7 +97,11 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="bg-[#F2F2F2] dark:bg-[#151427] dark:text-white py-3">
+    <div
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+        navShadow ? "shadow-lg" : ""
+      } bg-[#F2F2F2] dark:bg-[#151427] dark:text-white py-3`}
+    >
       <div className="navbar max-w-7xl flex mx-auto">
         <Toaster position="bottom-right" reverseOrder={false} />
         <div className="navbar-start z-10">
