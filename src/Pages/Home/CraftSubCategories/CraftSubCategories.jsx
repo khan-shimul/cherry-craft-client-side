@@ -5,7 +5,7 @@ const CraftSubCategories = () => {
   const [subCategories, setSubCategories] = useState([]);
   // loaded sub-categories from db
   useEffect(() => {
-    fetch("http://localhost:5000/craft/sub-categories")
+    fetch("https://cheer-craft-server.vercel.app/craft/sub-categories")
       .then((res) => res.json())
       .then((data) => setSubCategories(data));
   }, []);

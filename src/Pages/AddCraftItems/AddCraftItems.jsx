@@ -49,7 +49,7 @@ const AddCraftItems = () => {
       userEmail,
     };
     // craft-item post to db
-    fetch("http://localhost:5000/craft-items", {
+    fetch("https://cheer-craft-server.vercel.app/craft-items", {
       method: "POST",
       headers: {
         "content-type": "application/json",

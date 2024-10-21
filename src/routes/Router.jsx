@@ -21,7 +21,8 @@ export const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/craft-items"),
+        loader: () =>
+          fetch("https://cheer-craft-server.vercel.app/craft-items"),
       },
       {
         path: "/craft-item/:id",
@@ -31,11 +32,14 @@ export const Router = createBrowserRouter([
           </ProtectRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craft-item/${params.id}`),
+          fetch(
+            `https://cheer-craft-server.vercel.app/craft-item/${params.id}`
+          ),
       },
       {
         path: "/all-craft-items",
-        loader: () => fetch("http://localhost:5000/craft-items"),
+        loader: () =>
+          fetch("https://cheer-craft-server.vercel.app/craft-items"),
         element: <AllCraftItems />,
       },
       {
@@ -48,7 +52,8 @@ export const Router = createBrowserRouter([
       },
       {
         path: "/my-craft-list",
-        loader: () => fetch("http://localhost:5000/craft-items"),
+        loader: () =>
+          fetch("https://cheer-craft-server.vercel.app/craft-items"),
         element: (
           <ProtectRoute>
             <MyCraftList />
@@ -63,7 +68,9 @@ export const Router = createBrowserRouter([
           </ProtectRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/craft-item/${params.id}`),
+          fetch(
+            `https://cheer-craft-server.vercel.app/craft-item/${params.id}`
+          ),
       },
       {
         path: "/craft-item/sub-categories/:name",
@@ -73,7 +80,9 @@ export const Router = createBrowserRouter([
           </ProtectRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/sub-categories/${params.name}`),
+          fetch(
+            `https://cheer-craft-server.vercel.app/sub-categories/${params.name}`
+          ),
       },
       {
         path: "/login",

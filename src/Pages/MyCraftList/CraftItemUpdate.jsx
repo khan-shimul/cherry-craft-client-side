@@ -40,7 +40,7 @@ const CraftItemUpdate = () => {
       processingTime,
       stockStatus,
     };
-    fetch(`http://localhost:5000/craft-item/${_id}`, {
+    fetch(`https://cheer-craft-server.vercel.app/craft-item/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
